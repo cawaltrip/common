@@ -1,10 +1,10 @@
 # vim: filetype=sh
-
+prompt_newline=$'\n%{\r%}'
 # Prompt symbol
 COMMON_PROMPT_SYMBOL="❯"
 
 # Left Prompt
- PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_status)'
+ PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)${prompt_newline}$(common_return_status)'
 
 # Right Prompt
  RPROMPT='$(common_git_status)'
@@ -30,7 +30,7 @@ common_host() {
 
 # Current directory
 common_current_dir() {
-  echo -n "%{$fg[blue]%}%c "
+  echo -n "%{$fg[blue]%}%~ "
 }
 
 # Prompt symbol
